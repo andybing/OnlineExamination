@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" /> 
+	<package name="QuestionAction" extends="struts-default" namespace="/">
+		<action name="QuestionMainAction" class="com.andy.action.QuestionMainAction">
+			<result name="questionmain">main.jsp</result>
+		</action>
+		
+		<action name="JuageAnwserAction" class="com.andy.action.JuageAnwserAction" method="juage"></action>
+	
+		<action name="AddQuestionAction" class="com.andy.action.AddQuestionAction" method="add"></action>
+		
+		<action name="UpdateQuestionAction" class="com.andy.action.UpdateQuestionAction" method="update"></action>
+		
+		<action name="DeleteQuestionAction" class="com.andy.action.DeleteQuestionAction" method="delete"></action>
+	</package>
+	
+	<package name="LoginAction" extends="struts-default" namespace="/">
+		<action name="ImageResponseAction" class="com.andy.action.ImageReponseAction">
+			<result type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>  
+                <param name="bufferSize">2048</param> 
+			</result>
+		</action>
+		
+		<action name="StudentLoginAction" class="com.andy.action.StudentLoginAction" method="login">
+			<!-- <result name="success">welcome.jsp</result>
+			<result name="fail">login.jsp</result> -->
+		</action>
+		
+		<action name="StudentLogoutAction" class="com.andy.action.StudentLogoutAction">
+			<result name="login">login.jsp</result>
+		</action>
+	</package>
+	
+	<package name="Student" extends="struts-default" namespace="/">
+		<action name="StudentModifyPasswordAction" class="com.andy.action.StudentModifyPasswordAction" method="modify"></action>
+		
+		<action name="StudentShowInfoAction" class="com.andy.action.StudentShowInfoAction">
+			<result name="studentInfo">student/showInfo.jsp</result>
+		</action>
+		
+		<action name="StudentShowScoreAction" class="com.andy.action.StudentShowScoreAction">
+			<result name="showScore">student/showScore.jsp</result>
+		</action>
+		
+		<action name="StudentAddAction" class="com.andy.action.StudentAddAction" method="add"></action>
+		
+		<action name="StudentDeleteAction" class="com.andy.action.StudentDeleteAction" method="delete"></action>
+		
+		<action name="StudentGetInfoByIdAction" class="com.andy.action.StudentGetInfoByIdAction">
+			<result name="showStudentInfo">manager/showStudentInfo.jsp</result>
+		</action>
+		
+		<action name="StudentUpdateAction" class="com.andy.action.StudentUpdateAction" method="update"></action>
+		
+		<action name="StudentGetAllNamesAction" class="com.andy.action.StudentGetAllNamesAction" method="getAllNames"></action>
+	</package>
+	
+	<package name="TeacherAction" extends="struts-default" namespace="/">
+		<action name="TeacherLoginAction" class="com.andy.action.TeacherLoginAction" method="login"></action>
+		
+		<action name="TeacherModifyPasswordAction" class="com.andy.action.TeacherModifyPasswordAction" method="modify"></action>
+		
+		<action name="TeacherLogoutAction" class="com.andy.action.TeacherLogoutAction">
+			<result name="login">login.jsp</result>
+		</action>
+		
+		<action name="TeacherShowInfoAction" class="com.andy.action.TeacherShowInfoAction">
+			<result name="teacherInfo">teacher/showInfo.jsp</result>
+		</action>
+		
+		<action name="TeacherAddAction" class="com.andy.action.TeacherAddAction" method="add"></action>
+		
+		<action name="TeacherDeleteAction" class="com.andy.action.TeacherDeleteAction" method="delete"></action>
+		
+		<action name="TeacherGetInfoByIdAction" class="com.andy.action.TeacherGetInfoByIdAction">
+			<result name="showTeacherInfo">manager/showTeacherInfo.jsp</result>
+		</action>
+		
+		<action name="TeacherUpdateAction" class="com.andy.action.TeacherUpdateAction" method="update"></action>
+		
+		<action name="TeacherGetAllNamesAction" class="com.andy.action.TeacherGetAllNamesAction" method="getAllNames"></action>
+	</package>
+	
+	<package name="ScoreAction" extends="struts-default" namespace="/">
+		<action name="ScoreShowAllAction" class="com.andy.action.ScoreShowAllAction">
+			<result name="showAllScore">teacher/showAllScore.jsp</result>
+		</action>
+	</package>
+	
+	<package name="CourseAction" extends="struts-default" namespace="/">
+		<action name="CourseGetAllNamesAction" class="com.andy.action.CourseGetAllNamesAction" method="getNames"></action>
+		
+		<action name="CourseGetAllTeachersAction" class="com.andy.action.CourseGetAllTeachersAction" method="getTeachers"></action>
+	
+		<action name="CourseAddAction" class="com.andy.action.CourseAddAction" method="add"></action>
+		
+		<action name="CourseAddTeacherAction" class="com.andy.action.CourseAddTeacherAction" method="set"></action>
+	</package>
+	
+	<package name="ManagerAction" extends="struts-default" namespace="/">
+		<action name="ManagerLoginAction" class="com.andy.action.ManagerLoginAction" method="login"></action>
+		
+		<action name="ManagerLogoutAction" class="com.andy.action.ManagerLogoutAction">
+			<result name="login">login.jsp</result>
+		</action>
+	</package>
+	
+	<package name="PaperAction" extends="struts-default" namespace="/">
+		<action name="PaperSetCouAndTeaAction" class="com.andy.action.PaperSetCouAndTeaAction" method="saveCouAndTea"></action>
+	</package>
+</struts>    
